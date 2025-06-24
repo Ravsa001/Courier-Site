@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Feedback</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background: linear-gradient(to right, #00b4db, #0083b0);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .feedback-container {
+      background: #fff;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      max-width: 500px;
+      width: 100%;
+      text-align: center;
+    }
+
+    h2 {
+      color: #0083b0;
+      margin-bottom: 25px;
+    }
+
+    textarea, input, select {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      resize: vertical;
+    }
+
+    button {
+      background-color: #0083b0;
+      color: white;
+      border: none;
+      padding: 14px 20px;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    button:hover {
+      background-color: #005f7a;
+    }
+
+    .thank-you {
+      display: none;
+      font-size: 18px;
+      color: #28a745;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="feedback-container">
+    <h2>We value your feedback!</h2>
+    <form id="feedbackForm">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <select name="rating" required>
+        <option value="">Rate Our Service</option>
+        <option value="5">⭐⭐⭐⭐⭐ - Excellent</option>
+        <option value="4">⭐⭐⭐⭐ - Good</option>
+        <option value="3">⭐⭐⭐ - Average</option>
+        <option value="2">⭐⭐ - Poor</option>
+        <option value="1">⭐ - Very Poor</option>
+      </select>
+      <textarea name="message" rows="4" placeholder="Leave a comment..." required></textarea>
+      <button type="submit">Submit Feedback</button>
+    </form>
+
+    <div class="thank-you" id="thankYouMessage">
+      ✅ Thank you! Your feedback has been submitted.
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById("feedbackForm");
+    const thankYouMessage = document.getElementById("thankYouMessage");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      form.style.display = "none";
+      thankYouMessage.style.display = "block";
+    });
+  </script>
+
+</body>
+</html>

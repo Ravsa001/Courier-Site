@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pickup Confirmed</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      padding: 20px;
+      overflow: hidden;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(15px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 20px;
+      padding: 40px;
+      max-width: 480px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .icon {
+      font-size: 60px;
+      color: #00ffcc;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 26px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 18px;
+      margin-bottom: 20px;
+      color: #d9faff;
+    }
+
+    #pickupCode {
+      font-weight: 600;
+      font-size: 20px;
+      color: #00ffcc;
+      margin-bottom: 25px;
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: #00c9a7;
+      padding: 14px 30px;
+      border-radius: 10px;
+      color: white;
+      font-size: 16px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #00b39c;
+    }
+
+    @media (max-width: 480px) {
+      .card {
+        padding: 30px 20px;
+      }
+
+      h1 {
+        font-size: 22px;
+      }
+
+      p, #pickupCode {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="icon">✅</div>
+    <h1>Pickup Scheduled!</h1>
+    <p>Your pickup request has been successfully received.</p>
+    <p id="pickupCode">Pickup Number: PU000000</p>
+    <a id="trackBtn" class="btn" href="#">Track Pickup</a>
+  </div>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const pickup = urlParams.get('pickup') || "PU000000";
+    document.getElementById("pickupCode").textContent = "Pickup Number: " + pickup;
+    document.getElementById("trackBtn").href = "track.html?pickup=" + pickup;
+  </script>
+</body>
+</html>

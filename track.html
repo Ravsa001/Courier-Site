@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Track Pickup</title>
+  <link href="feed.html" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: linear-gradient(to right, #141e30, #243b55);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .track-card {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 40px;
+      border-radius: 15px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+      max-width: 500px;
+      width: 100%;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 18px;
+      margin: 10px 0;
+    }
+
+    #pickup-id {
+      font-size: 20px;
+      font-weight: bold;
+      color: #00e0ff;
+    }
+
+    .status-box {
+      margin-top: 20px;
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .status-item {
+      margin-bottom: 10px;
+    }
+
+    .status-item span {
+      font-weight: bold;
+      color: #00ff99;
+    }
+
+    .back-button {
+      margin-top: 25px;
+      display: inline-block;
+      background-color: #ff9800;
+      color: white;
+      padding: 10px 25px;
+      border-radius: 8px;
+      text-decoration: none;
+    }
+
+    .back-button:hover {
+      background-color: #e68a00;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="track-card">
+    <h1>Pickup Tracking</h1>
+    <p id="pickup-id">Pickup Number: PU000000</p>
+
+    <div class="status-box" id="status-box">
+      <div class="status-item"><span>Pickup Person:</span> Rajesh Kumar</div>
+      <div class="status-item"><span>Phone:</span> +91 9876543210</div>
+      <div class="status-item"><span>Last Location:</span> Near Sector 12, Main Road</div>
+      <div class="status-item"><span>Status:</span> On the Way</div>
+      <div class="status-item"><span>Estimated Time:</span> 15 minutes</div>
+    </div>
+
+    <a href="feed.html" class="back-button">Next</a>
+  </div>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const pickupNumber = urlParams.get("pickup") || "PU000000";
+
+    document.getElementById("pickup-id").textContent = "Pickup Number: " + pickupNumber;
+
+    // Optionally customize fake status based on pickupNumber if needed
+    // You can later replace this with real backend API
+  </script>
+
+</body>
+</html>
